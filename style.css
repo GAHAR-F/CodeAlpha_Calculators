@@ -1,0 +1,57 @@
+body{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(26, 20, 20);
+}
+#display{
+    color: white;
+    width: 100%;
+    font-size: 50px;
+    text-align: left;
+    border: none;
+    background-color: rgb(26, 20, 20);
+    padding: 20px;
+}
+#font{
+    color: white;
+    margin-left: 100;
+}
+#keys{
+    display: grid;
+    grid-template-columns:repeat(4,1fr) ;
+    gap: 15px;
+    padding: 25px;
+}
+#Calculator{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 15px;
+    max-width: 600px;
+    overflow: hidden;
+}
+button{
+    color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: hsl(0, 0%, 25%);
+    padding: 20px;
+    border: none;
+    font-size:3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+button:hover{
+    background-color: hsl(0,0%,40%);
+}
+.oprtor-btn{
+    color: rgb(102, 238, 102);
+}
+.oprtor-btny{
+    background-color: rgb(102, 238, 102);
+}
+/* @media (max-width:600px;) { */
+    
+/* } */

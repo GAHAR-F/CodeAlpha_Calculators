@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="Calculator">
+      <input id="display" readonly />
+      <div id="font">
+        <i class="fa-regular fa-clock-three"></i>
+        <i class="fa-solid fa-delete-left" style="color: green;"></i>
+        
+      </div>
+      <hr />
+      <div id="keys">
+        <button onclick="clearDisplay('C')" style="color: red">C</button>
+        <button onclick="toDisplay('()')" class="oprtor-btn">()</button>
+        <button onclick="toDisplay('%')" class="oprtor-btn">%</button>
+        <button onclick="toDisplay('/')" class="oprtor-btn">
+          <i class="fa-solid fa-divide"></i>
+        </button>
+        <button onclick="toDisplay('7')">7</button>
+        <button onclick="toDisplay('8')">8</button>
+        <button onclick="toDisplay('9')">9</button>
+        <button onclick="toDisplay('*')" class="oprtor-btn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button onclick="toDisplay('4')">4</button>
+        <button onclick="toDisplay('5')">5</button>
+        <button onclick="toDisplay('6')">6</button>
+        <button onclick="toDisplay('-')" class="oprtor-btn">
+          <i class="fa-solid fa-minus"></i>
+        </button>
+        <button onclick="toDisplay('1')">1</button>
+        <button onclick="toDisplay('2')">2</button>
+        <button onclick="toDisplay('3')">3</button>
+        <button onclick="toDisplay('+')" class="oprtor-btn">
+          <i class="fa-solid fa-plus"></i>
+        </button>
+        <button onclick="toDisplay('-')" class="oprtor-btnx">
+          <i class="fa-solid fa-plus-minus"></i>
+        </button>
+        <button onclick="toDisplay('0')">0</button>
+        <button onclick="toDisplay('.')" class="oprtor-btn">.</button>
+        <button onclick="calculate('=')" class="oprtor-btny">=</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
