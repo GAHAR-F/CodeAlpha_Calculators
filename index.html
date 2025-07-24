@@ -15,45 +15,71 @@
   </head>
   <body>
     <div id="Calculator">
-      <input id="display" readonly />
-      <div id="font">
-        <i class="fa-regular fa-clock-three"></i>
-        <i class="fa-solid fa-delete-left" style="color: green;"></i>
-        
+      <input id="display" readonly aria-label="Calculator display"  />
+      <div id="icon-row">
+        <i class="fa-regular fa-clock" title="History" onclick="toggleHistory()" aria-label="Show history" tabindex="0"></i>
+        <i class="fa-solid fa-ruler" title="Unit Converter" aria-label="Unit Converter" tabindex="0" onclick="toggleUnitConverter()"></i>
+        <i class="fa-solid fa-square-root-variable" id="sci-toggle" onclick="toggleSciKeys()" title="Scientific" aria-label="Toggle scientific keys" tabindex="0"></i>
+        <i class="fa-solid fa-delete-left" style="color: green;" onclick="backspace()" title="Backspace" aria-label="Backspace" tabindex="0"></i>
       </div>
       <hr />
+      <div id="sci-keys" style="display:none; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-bottom: 10px;">
+        <button onclick="toDisplay('sin(')" class="oprtor-btn">sin</button>
+        <button onclick="toDisplay('cos(')" class="oprtor-btn">cos</button>
+        <button onclick="toDisplay('tan(')" class="oprtor-btn">tan</button>
+        <button onclick="toDisplay('sqrt(')" class="oprtor-btn">√</button>
+        <button onclick="toDisplay('^')" class="oprtor-btn">^</button>
+        <button onclick="toDisplay('Math.PI')" class="oprtor-btn">π</button>
+        <button onclick="toDisplay('Math.E')" class="oprtor-btn">e</button>
+      </div>
       <div id="keys">
         <button onclick="clearDisplay('C')" style="color: red">C</button>
-        <button onclick="toDisplay('()')" class="oprtor-btn">()</button>
+        <button onclick="insertParenthesis('()')" class="oprtor-btn">()</button>
         <button onclick="toDisplay('%')" class="oprtor-btn">%</button>
-        <button onclick="toDisplay('/')" class="oprtor-btn">
-          <i class="fa-solid fa-divide"></i>
-        </button>
+        <button onclick="toDisplay('/')" class="oprtor-btn">÷</button>
         <button onclick="toDisplay('7')">7</button>
         <button onclick="toDisplay('8')">8</button>
         <button onclick="toDisplay('9')">9</button>
-        <button onclick="toDisplay('*')" class="oprtor-btn">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+        <button onclick="toDisplay('*')" class="oprtor-btn">×</button>
         <button onclick="toDisplay('4')">4</button>
         <button onclick="toDisplay('5')">5</button>
         <button onclick="toDisplay('6')">6</button>
-        <button onclick="toDisplay('-')" class="oprtor-btn">
-          <i class="fa-solid fa-minus"></i>
-        </button>
+        <button onclick="toDisplay('-')" class="oprtor-btn">−</button>
         <button onclick="toDisplay('1')">1</button>
         <button onclick="toDisplay('2')">2</button>
         <button onclick="toDisplay('3')">3</button>
-        <button onclick="toDisplay('+')" class="oprtor-btn">
-          <i class="fa-solid fa-plus"></i>
-        </button>
-        <button onclick="toDisplay('-')" class="oprtor-btnx">
-          <i class="fa-solid fa-plus-minus"></i>
-        </button>
+        <button onclick="toDisplay('+')" class="oprtor-btn">+</button>
+        <button onclick="toggleSign()" class="oprtor-btnx">+/−</button>
         <button onclick="toDisplay('0')">0</button>
         <button onclick="toDisplay('.')" class="oprtor-btn">.</button>
         <button onclick="calculate('=')" class="oprtor-btny">=</button>
       </div>
+    </div>
+    <div id="history-panel" style="display:none;" role="region" aria-live="polite">
+      <button onclick="toggleHistory()" style="float:right;margin-bottom:10px;">Close</button>
+      <h3>History</h3>
+      <div id="history-content"></div>
+      <div style="clear:both"></div>
+    </div>
+    <div id="unit-converter-panel" style="display:none;">
+      <!-- <h3>Unit Converter</h3> -->
+      <input type="number" id="uc-input" aria-label="Value to convert" placeholder="Enter value" />
+      <select id="uc-from">
+        <option value="m">Meters</option>
+        <option value="km">Kilometers</option>
+        <option value="ft">Feet</option>
+        <option value="mi">Miles</option>
+      </select>
+      to
+      <select id="uc-to">
+        <option value="m">Meters</option>
+        <option value="km">Kilometers</option>
+        <option value="ft">Feet</option>
+        <option value="mi">Miles</option>
+      </select>
+      <button onclick="convertUnit()">Convert</button>
+      <div id="uc-result"></div>
+      <button onclick="toggleUnitConverter()">Close</button>
     </div>
     <script src="script.js"></script>
   </body>
